@@ -184,6 +184,8 @@ p { margin: 0 0 1.1em; }
   50%      { opacity: 0.35; transform: scale(0.72); }
 }
 
+.brand-x { color: var(--signal); }
+
 .nav {
   display: flex;
   align-items: center;
@@ -320,6 +322,28 @@ p { margin: 0 0 1.1em; }
   border-left: 1px solid var(--line);
   padding-left: clamp(1.2rem, 2.5vw, 2rem);
 }
+
+.hero-in--wide { grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.8fr); }
+
+/* four capability links stacked down the right of the hero */
+.hero-side--pillars { padding-bottom: 0.5rem; }
+.pillar {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--paper-dim);
+  transition: color 0.28s var(--ease), padding-left 0.28s var(--ease);
+}
+.pillar:first-child { border-top: 1px solid var(--line-soft); }
+.pillar:hover { color: var(--paper); padding-left: 0.5rem; }
+.pillar:hover .idx { color: var(--signal); }
 
 .stat + .stat { margin-top: 1.9rem; }
 .stat b {
@@ -473,6 +497,9 @@ p { margin: 0 0 1.1em; }
 
 .rows { border-top: 1px solid var(--line-soft); }
 
+/* sticky header clearance for #anchor jumps */
+[id] { scroll-margin-top: 92px; }
+
 .row {
   display: grid;
   grid-template-columns: 68px minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
@@ -496,6 +523,44 @@ p { margin: 0 0 1.1em; }
   transition: all 0.35s var(--ease);
 }
 .row:hover .arrow { opacity: 1; transform: translateX(0); }
+
+/* ------------------------------------------------------- service blocks --- */
+
+.svc {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(2.2rem, 4vw, 3.4rem) 0;
+  border-top: 1px solid var(--line-soft);
+}
+.svc:last-child { border-bottom: 1px solid var(--line-soft); }
+.svc-num .idx { font-size: 0.9rem; }
+.svc-body h2 { font-size: clamp(1.65rem, 3vw, 2.5rem); }
+.svc-body .lede { max-width: 62ch; margin: 1.1rem 0 1.6rem; }
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.chips li {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.7rem;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.chips li:hover { border-color: var(--signal-dim); color: var(--paper); }
+
+@media (max-width: 720px) {
+  .svc { grid-template-columns: 1fr; gap: 0.6rem; }
+}
 
 /* ---------------------------------------------------------- split/about --- */
 
@@ -786,6 +851,8 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
     gap: 1.5rem;
   }
   .stat + .stat { margin-top: 0; }
+  .hero-side--pillars { display: block; padding-top: 0.5rem; }
+  .hero-side--pillars .pillar:first-child { border-top: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .row { grid-template-columns: 48px minmax(0, 1fr); }
   .row .arrow { display: none; }
