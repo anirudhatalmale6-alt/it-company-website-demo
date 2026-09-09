@@ -1,7 +1,7 @@
 # IT Company Website — demo build
 
-A four-page informational website for an IT services company, built as a working
-sample. All copy, figures and contact details are **placeholder** and marked as
+A four-page informational website for Xervix, built as a working sample.
+Two themes: the light build at the root, the original dark build under `/dark/`. All copy, figures and contact details are **placeholder** and marked as
 such by the banner at the top of every page.
 
 **Live demo:** https://anirudhatalmale6-alt.github.io/it-company-website-demo/
