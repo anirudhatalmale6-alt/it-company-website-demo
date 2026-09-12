@@ -138,20 +138,18 @@ p { margin: 0 0 1.1em; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-}
-.brand .dot {
-  width: 10px; height: 10px;
-  background: var(--accent);
-  border-radius: 3px;
-  transform: rotate(45deg);
   flex: 0 0 auto;
 }
-.brand-x { color: var(--accent); }
+.brand img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.site-foot .brand img { height: 34px; }
+
+@media (max-width: 720px) {
+  .brand img { height: 32px; }
+}
 
 .nav { display: flex; align-items: center; gap: clamp(0.85rem, 2vw, 1.9rem); }
 .nav a {
