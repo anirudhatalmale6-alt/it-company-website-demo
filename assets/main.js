@@ -115,16 +115,75 @@
       return;
     }
 
-    // Demo build: no mail server wired up yet. On the live site this posts to
-    // the handler in /send.php (or a form service) and shows the same message.
-    var name = (form.querySelector("#name").value || "").trim().split(" ")[0];
-    status.textContent =
-      "Thanks " + name + " — your message has been received. " +
-      "We reply within one business day. [DEMO: not actually sent]";
-    status.classList.add("is-on");
-    status.focus();
-    form.reset();
-    Array.prototype.forEach.call(fields, clear);
+    var firstName = (form.querySelector("#name").value || "").trim().split(" ")[0];
+    var button = form.querySelector("button[type=submit]");
+    var buttonLabel = button ? button.innerHTML : "";
+
+    function say(text, isError) {
+      status.textContent = text;
+      status.classList.add("is-on");
+      status.classList.toggle("is-error", !!isError);
+      status.focus();
+    }
+
+    function restoreButton() {
+      if (!button) return;
+      button.disabled = false;
+      button.innerHTML = buttonLabel;
+    }
+
+    if (button) {
+      button.disabled = true;
+      button.innerHTML = "Sending…";
+    }
+
+    fetch("send.php", { method: "POST", body: new FormData(form) })
+      .then(function (res) {
+        return res.text().then(function (text) {
+          var data = null;
+          try { data = JSON.parse(text); } catch (err) { /* not JSON */ }
+          return { status: res.status, data: data };
+        });
+      })
+      .then(function (res) {
+        restoreButton();
+
+        // No JSON back means PHP never ran — i.e. we're on the static preview,
+        // which serves send.php as plain text. Say so rather than pretend.
+        if (res.data === null) {
+          say("Thanks " + firstName + " — the form works, but this preview has no mail server behind it, so nothing was actually sent. On the live site this lands in Sales@Xervix.com.au.");
+          form.reset();
+          Array.prototype.forEach.call(fields, clear);
+          return;
+        }
+
+        if (res.data.ok) {
+          say("Thanks " + firstName + " — your message has been received. We'll come back to you within one business day.");
+          form.reset();
+          Array.prototype.forEach.call(fields, clear);
+          return;
+        }
+
+        // Server-side validation disagreed with the browser: show it per field.
+        if (res.data.errors) {
+          var firstKey = null;
+          Object.keys(res.data.errors).forEach(function (key) {
+            var input = document.getElementById(key);
+            if (input) fail(input, res.data.errors[key]);
+            if (!firstKey) firstKey = key;
+          });
+          say("Please check the highlighted fields.", true);
+          var el = firstKey && document.getElementById(firstKey);
+          if (el) el.focus();
+          return;
+        }
+
+        say(res.data.error || "Something went wrong. Please email Sales@Xervix.com.au directly.", true);
+      })
+      .catch(function () {
+        restoreButton();
+        say("We couldn't send that — please check your connection, or email Sales@Xervix.com.au directly.", true);
+      });
   });
 
   /* --------------------------------------------------------- footer year */

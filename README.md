@@ -17,7 +17,14 @@ covering managed IT, cyber security, AI, IoT and technology products.
 - Services and Products wording is draft, awaiting client approval
 - Logo is a placeholder wordmark; the real logo is still being created
 - No phone number or postal address yet — deliberately absent rather than invented
-- Contact form is front-end only until it is wired to Sales@Xervix.com.au
+- Contact form posts to `send.php`, which emails Sales@Xervix.com.au. On a
+  static preview (no PHP) the form says so plainly instead of pretending to send
+
+## Contact form
+`send.php` handles the enquiry: server-side validation, honeypot, mail-header
+injection guard, and a local `enquiries.log` fallback if the host's mail() fails
+so nothing is lost. Needs PHP — any standard shared host, GoDaddy included.
+If mail() is blocked, swap in SMTP; nothing else changes.
 
 ## Build
 Hand-written HTML/CSS/vanilla JS. No framework, no build step.
