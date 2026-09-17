@@ -13,6 +13,7 @@
 declare(strict_types=1);
 
 const MAIL_TO      = 'Sales@Xervix.com.au';
+const MAIL_FROM    = 'noreply@xervix.com.au';
 const MAIL_SUBJECT = 'Website enquiry';
 const MIN_MESSAGE  = 15;
 
@@ -86,14 +87,19 @@ $body = implode("\n", $lines);
 // From must be a domain-owned address or the host's SPF check will bin it.
 // The visitor's address goes in Reply-To so a reply reaches them.
 $headers = [
-    'From: Xervix Website <noreply@xervix.com.au>',
+    'From: Xervix Website <' . MAIL_FROM . '>',
     'Reply-To: ' . $name . ' <' . $email . '>',
     'Content-Type: text/plain; charset=utf-8',
     'X-Mailer: PHP/' . phpversion(),
 ];
 
 $subject = MAIL_SUBJECT . ' — ' . $topic;
-$sent    = @mail(MAIL_TO, $subject, $body, implode("\r\n", $headers));
+
+// The 5th argument sets the ENVELOPE sender. Without it the server uses its own
+// hostname, so SPF is checked against that hostname instead of xervix.com.au —
+// which is why Gmail reported "SPF: NONE" and DMARC failed. Forcing it to a
+// domain address makes SPF both pass and align, so DMARC passes.
+$sent = @mail(MAIL_TO, $subject, $body, implode("\r\n", $headers), '-f' . MAIL_FROM);
 
 if (!$sent) {
     // Don't lose the enquiry just because the mail server is unhappy.

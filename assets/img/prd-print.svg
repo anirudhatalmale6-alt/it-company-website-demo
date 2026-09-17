@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Printers and photocopiers"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f7fb"/><stop offset="1" stop-color="#eceef6"/></linearGradient><radialGradient id="glow" cx="76%" cy="24%" r="62%"><stop offset="0" stop-color="#fc4a36" stop-opacity=".16"/><stop offset="1" stop-color="#fc4a36" stop-opacity="0"/></radialGradient><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.6" fill="#2c2b4b" opacity=".07"/></pattern></defs><rect width="480" height="300" fill="url(#bg)"/><rect width="480" height="300" fill="url(#dots)"/><rect width="480" height="300" fill="url(#glow)"/>
+<rect x="140" y="60" width="200" height="56" rx="6" fill="#2c2b4b" opacity=".12"/>
+<rect x="118" y="116" width="244" height="92" rx="12" fill="none" stroke="#2c2b4b" stroke-width="7"/>
+<rect x="150" y="196" width="180" height="62" rx="6" fill="#fff" stroke="#fc4a36" stroke-width="7"/>
+<path d="M176 218h128M176 236h96" stroke="#fc4a36" stroke-width="6" stroke-linecap="round"/>
+<circle cx="326" cy="152" r="8" fill="#fc4a36"/>
+</svg>

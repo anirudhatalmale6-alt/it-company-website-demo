@@ -319,40 +319,6 @@ p { margin: 0 0 1.1em; }
 .pillar:hover { color: #fff; border-top-color: var(--accent); }
 .pillar:hover .idx { color: var(--accent); }
 
-/* ------------------------------------------------------------- trusted ---- */
-
-.trusted {
-  background: var(--canvas-2);
-  padding: clamp(2.5rem, 5vw, 3.5rem) 0;
-}
-.trusted-in {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  align-items: center;
-}
-.trusted h2 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); margin-bottom: 0.5rem; }
-.trusted p { margin: 0; font-size: 0.98rem; }
-.logo-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-.logo-slot {
-  height: 74px;
-  border: 1px dashed var(--line);
-  border-radius: var(--r-sm);
-  background: #fff;
-  display: grid;
-  place-items: center;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--ink-mute);
-  text-align: center;
-  padding: 0.5rem;
-}
-
 /* ------------------------------------------------------------- section ---- */
 
 .sect { padding: clamp(3.5rem, 8vh, 6rem) 0; position: relative; }
@@ -391,36 +357,21 @@ p { margin: 0 0 1.1em; }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .card p { margin: 0; font-size: 0.97rem; }
 
-/* image slot at the head of a card */
+/* illustration at the head of a card */
 .thumb {
   height: 190px;
   border-radius: var(--r-sm);
-  background:
-    linear-gradient(135deg, var(--canvas-2), #e7e8f1),
-    var(--canvas-2);
-  display: grid;
-  place-items: center;
-  position: relative;
   overflow: hidden;
+  background: var(--canvas-2);
 }
-.thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 70% 30%, rgba(252,74,54,0.14), transparent 58%);
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s var(--ease);
 }
-.thumb span {
-  position: relative;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  border: 1px dashed var(--line);
-  background: rgba(255,255,255,0.75);
-  border-radius: 999px;
-  padding: 0.3rem 0.8rem;
-}
+.card:hover .thumb img { transform: scale(1.04); }
 
 .card-top {
   display: flex;
@@ -739,15 +690,13 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 
 @media (max-width: 980px) {
   .split,
-  .form-grid,
-  .trusted-in { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
   .hero-strip { grid-template-columns: repeat(2, 1fr); }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 760px) {
   .svc { grid-template-columns: 1fr; gap: 0.5rem; }
-  .logo-row { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {

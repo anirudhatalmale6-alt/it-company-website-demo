@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Video conferencing"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f7fb"/><stop offset="1" stop-color="#eceef6"/></linearGradient><radialGradient id="glow" cx="76%" cy="24%" r="62%"><stop offset="0" stop-color="#fc4a36" stop-opacity=".16"/><stop offset="1" stop-color="#fc4a36" stop-opacity="0"/></radialGradient><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.6" fill="#2c2b4b" opacity=".07"/></pattern></defs><rect width="480" height="300" fill="url(#bg)"/><rect width="480" height="300" fill="url(#dots)"/><rect width="480" height="300" fill="url(#glow)"/>
+<rect x="104" y="92" width="184" height="116" rx="12" fill="none" stroke="#2c2b4b" stroke-width="7"/>
+<path d="M300 130l76-32v104l-76-32z" fill="#fc4a36"/>
+<circle cx="172" cy="140" r="20" fill="#2c2b4b" opacity=".22"/>
+<path d="M144 186c8-18 48-18 56 0" fill="#2c2b4b" opacity=".22"/>
+<circle cx="230" cy="150" r="12" fill="#2c2b4b" opacity=".14"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Cyber security"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6f7fb"/><stop offset="1" stop-color="#eceef6"/></linearGradient><radialGradient id="glow" cx="76%" cy="24%" r="62%"><stop offset="0" stop-color="#fc4a36" stop-opacity=".16"/><stop offset="1" stop-color="#fc4a36" stop-opacity="0"/></radialGradient><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.6" cy="1.6" r="1.6" fill="#2c2b4b" opacity=".07"/></pattern></defs><rect width="480" height="300" fill="url(#bg)"/><rect width="480" height="300" fill="url(#dots)"/><rect width="480" height="300" fill="url(#glow)"/>
+<path d="M240 62l96 34v74c0 58-40 92-96 108-56-16-96-50-96-108V96z"
+      fill="none" stroke="#2c2b4b" stroke-width="7" stroke-linejoin="round"/>
+<path d="M240 82l76 27v60c0 46-31 73-76 86-45-13-76-40-76-86v-60z" fill="#2c2b4b" opacity=".07"/>
+<path d="M203 156l26 27 50-56" stroke="#fc4a36" stroke-width="10" fill="none"
+      stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
