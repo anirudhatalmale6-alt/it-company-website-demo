@@ -260,20 +260,6 @@ p { margin: 0 0 1.1em; }
     radial-gradient(ellipse 60% 90% at 82% 20%, rgba(252,74,54,0.4), transparent 62%),
     #201f38;
 }
-.hero-photo::after {
-  content: "PHOTO SLOT — your team / office image goes here";
-  position: absolute;
-  right: clamp(1rem, 4vw, 3rem);
-  top: 1.25rem;
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.42);
-  border: 1px dashed rgba(255,255,255,0.28);
-  border-radius: 999px;
-  padding: 0.35rem 0.9rem;
-}
-
 /* padding-block only — the `padding` shorthand here would wipe .wrap's gutter */
 .hero-in {
   position: relative;
@@ -658,19 +644,6 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .crumb { font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.6); }
 .crumb a { color: var(--accent); }
 .crumb a:hover { text-decoration: underline; }
-
-/* --------------------------------------------------------- placeholder ---- */
-
-.demo-bar {
-  background: var(--accent-sf);
-  color: #8a2718;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 0.6rem 1rem;
-  line-height: 1.5;
-}
-.demo-bar a { color: #8a2718; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.demo-bar a:hover { color: var(--accent-dk); }
 
 /* ------------------------------------------------------------- reveals ---- */
 
